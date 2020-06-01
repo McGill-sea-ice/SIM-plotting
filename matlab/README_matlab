@@ -1,0 +1,7 @@
+This folder contains matlab routines for plots based on SIM outputs. 
+
+Please provide details on how to use a routine at the top of the .m file. 
+
+-------------------------------------------------------------------------
+
+plot_Pnormstress.m: plots normalized stresses with respect to the ellipse.
