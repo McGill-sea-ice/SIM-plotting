@@ -1,2 +1,3 @@
 # SIM-plotting
-plotting routines for SIM
+
+matlab and python plotting routines for McGill sea ice model (SIM).
