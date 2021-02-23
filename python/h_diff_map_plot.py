@@ -23,7 +23,7 @@ hdiff[mask==0]=np.nan
 hdiff = np.ma.masked_invalid(hdiff)
 
 fileout="FIGS/hdiff" + date +"_" + exp2 + "_" + exp1 + ".png"
-cmap = plt.get_cmap('BuPu')
+cmap = plt.get_cmap('bwr')
 cmap.set_bad(color = 'gray', alpha = 1.)
 plt.pcolormesh(hdiff, cmap=cmap, vmin=-1, vmax=1)
 plt.colorbar()
