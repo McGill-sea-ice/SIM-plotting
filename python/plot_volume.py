@@ -43,8 +43,12 @@ for i in range(len(datetp)):
    dtime2[i]=datetime.strptime(dstr, "%Y%m%d")
 
 #plt.plot_date(dtime,listb)
-plt.plot(dtime1,listvol1)
-plt.plot(dtime2,listvol2)
+plt.plot(dtime1,listvol1, label='upwind')
+plt.plot(dtime2,listvol2, label='SL')
+plt.legend(loc="upper right")
+plt.ylabel('Sea ice volume (km$^3$)', fontsize=18)
+plt.locator_params(axis='y', nbins=4) 
+#plt.locator_params(axis='x', nbins=6)
 
 fileout="FIGS/volume_" + exp1 + "_" +exp2 +".png"
 #plt.axis([0, h.shape[1], 0, h.shape[0]])
