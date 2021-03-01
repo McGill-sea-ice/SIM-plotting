@@ -4,30 +4,49 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as dates
 from datetime import datetime
 
-exp="42"
-file1="outputSIM/sea_ice_volume." +exp
+exp1="81"
+file1="outputSIM/sea_ice_volume." +exp1
+exp2="82"
+file2="outputSIM/sea_ice_volume." +exp2
 
-lista = [] # dates
-listb = [] # volume
+lista1 = [] # dates
+listvol1 = [] # volume
 with open(file1, 'r') as file:
    for row in file:
       a, b = row.split()
-      lista.append(int(a))
-      listb.append(float(b))
+      lista1.append(int(a))
+      listvol1.append(float(b))
 
-datetp=np.array(lista)
+datetp=np.array(lista1)
 
-dtime = ["" for i in range(len(datetp))]
+dtime1 = ["" for i in range(len(datetp))]
 
 for i in range(len(datetp)):
    dstr=str(datetp[i])
-   dtime[i]=datetime.strptime(dstr, "%Y%m%d")  
+   dtime1[i]=datetime.strptime(dstr, "%Y%m%d")  
+
+lista2 = [] # dates                                                  
+listvol2 = [] # volume
+
+with open(file2, 'r') as file:
+   for row in file:
+      a, b = row.split()
+      lista2.append(int(a))
+      listvol2.append(float(b))
+
+datetp=np.array(lista2)
+
+dtime2 = ["" for i in range(len(datetp))]
+
+for i in range(len(datetp)):
+   dstr=str(datetp[i])
+   dtime2[i]=datetime.strptime(dstr, "%Y%m%d")
 
 #plt.plot_date(dtime,listb)
-plt.plot(dtime,listb)
+plt.plot(dtime1,listvol1)
+plt.plot(dtime2,listvol2)
 
-
-fileout="FIGS/volume_" + exp +".png"
+fileout="FIGS/volume_" + exp1 + "_" +exp2 +".png"
 #plt.axis([0, h.shape[1], 0, h.shape[0]])
 plt.savefig(fileout)
 
