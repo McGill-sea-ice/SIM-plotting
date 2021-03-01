@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as dates
 from datetime import datetime
 
-exp1="81"
+exp1="85"
 file1="outputSIM/sea_ice_volume." +exp1
-exp2="82"
+exp2="86"
 file2="outputSIM/sea_ice_volume." +exp2
 
 lista1 = [] # dates
@@ -46,10 +46,11 @@ for i in range(len(datetp)):
 plt.plot(dtime1,listvol1, label='upwind')
 plt.plot(dtime2,listvol2, label='SL')
 plt.legend(loc="upper right")
-plt.ylabel('Sea ice volume (km$^3$)', fontsize=18)
+plt.ylabel('Sea ice volume (10$^3$ km$^3$)', fontsize=18)
 plt.locator_params(axis='y', nbins=4) 
 #plt.locator_params(axis='x', nbins=6)
-
+plt.xlim(datetime.strptime(str(200201), '%Y%m'), datetime.strptime(str(200301), '%Y%m'))
+plt.ylim(0, 30)
 fileout="FIGS/volume_" + exp1 + "_" +exp2 +".png"
 #plt.axis([0, h.shape[1], 0, h.shape[0]])
 plt.savefig(fileout)
